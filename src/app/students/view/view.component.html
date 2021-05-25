@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+  <div class="container-fluid">
+    <a class="navbar-brand"[routerLink]="['/']">Contact Managment System</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" id="active" aria-current="page" [routerLink]="['/']">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/phone']">Contact List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/test']">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/about']">About Us</a>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="token" class="d-flex left">
+      <a class="a" (click)="logOut()">Logout</a>
+    </div>
+  </div>
+</nav>
+<!-- Navbar End -->
+
+<!-- main content START  -->
+<div class="container mt-3">
+  <div class="card">
+    <div class="card-header">All Users</div>
+    <div class="card-body">
+      <table class="table table-strip">
+        <tr class="bg-info text-white">
+            <td> ID</td>
+            <td> User Name </td>
+            <td> First Name </td>
+            <td> Last Name </td>
+            <td> Email </td>
+            <td> Created </td>
+            <td> Action </td>
+
+        </tr>
+
+        <tr *ngFor="let user of this.users">
+            <td>{{user.id}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+             <td>{{user.created}}</td>
+            <td>
+            <a href="javascript:void(0);" class="btn btn-success" (click)="view(user)"><i class="far fa-eye"></i></a>
+            <a style="margin-left: 5px; margin-right: 5px;" href="javascript:void(0);" class="btn btn-info" (click)="edit(user)"><i class="fas fa-edit"></i></a>
+            <a href="javascript:void(0);" class="btn btn-danger" (click)="deleteUser(user)"><i class="far fa-trash-alt"></i></a></td>
+        </tr>
+        <tr>
+             <td>&nbsp;</td>
+              <td><a [routerLink]="['/add']" class="btn btn-success btn-lg">Add User</a></td>
+        </tr>
+        </table>
+
+    </div>
+  </div>
+</div>
+<!-- main content End  -->
+
+

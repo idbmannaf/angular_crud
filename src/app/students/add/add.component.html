@@ -1,0 +1,93 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+  <div class="container-fluid">
+    <a class="navbar-brand"[routerLink]="['/']">Contact Managment System</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
+        </li>
+        <li class="nav-item" *ngIf="token">
+          <a class="nav-link active" [routerLink]="['/phone']">Contact List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/test']">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/about']">About Us</a>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="token" class="d-flex left">
+      <a class="a" (click)="logOut()">Logout</a>
+    </div>
+    <div class="register" *ngIf="!token" >
+      <a class="nav-link active" [routerLink]="['/login']">Login</a>
+    </div>
+  </div>
+</nav>
+<!-- Navbar End -->
+<!-- main content START  -->
+<div class="container mt-3">
+  <div class="card">
+    <div class="card-header">Add Users</div>
+    <div class="card-body">
+      <div class="col-md-6 m-auto">
+       <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+         <div class="form-group">
+           <label for="username">User Name:</label>
+           <input type="text" formControlName="username" placeholder="username"
+            name="username" class="form-control" id="username">
+          <span class="bg-danger" *ngIf="usererror">{{ usererrormsg }}</span>
+          </div>
+
+         <div class="form-group">
+           <label for="firstName">First Name:</label>
+           <input formControlName="firstName" placeholder="First Name"
+           name="firstName" class="form-control" id="firstName">
+         </div>
+
+         <div class="form-group">
+           <label for="lastName">Last Name:</label>
+           <input formControlName="lastName" placeholder="Last name"
+            name="lastName" class="form-control" id="lastName">
+         </div>
+         <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" formControlName="email"
+          placeholder="example@web.com" name="email" class="form-control" id="email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" formControlName="password"
+          placeholder="password" name="password" class="form-control" id="password">
+        </div>
+
+         <!-- <div class="form-group">
+           <label for="age">Age:</label>
+           <input type="number" formControlName="age" placeholder="age"
+            name="age" class="form-control" id="age">
+         </div>
+
+         <div class="form-group">
+           <label for="salary">Salary:</label>
+           <input type="number" formControlName="salary"
+            placeholder="salary" name="salary" class="form-control" id="salary">
+         </div> -->
+         <button *ngIf='token' class="btn btn-success">Add User</button>
+         <button *ngIf='!token' class="btn btn-success">Register</button>
+<!-- <div class="form-control" *ngIf='token'>
+
+</div> -->
+
+       </form>
+
+     </div>
+
+    </div>
+  </div>
+</div>
+<!-- main content End  -->

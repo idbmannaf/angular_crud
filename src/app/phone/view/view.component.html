@@ -1,0 +1,110 @@
+<!-- <h1>{{ this.url }}</h1> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+  <div class="container-fluid">
+    <a class="navbar-brand"[routerLink]="['/']">Contact Managment System</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active"  aria-current="page" [routerLink]="['/']">Home</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="token" id="active" class="nav-link active" [routerLink]="['/phone']">Contact List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/test']">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/about']">About Us</a>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="token" class="d-flex left">
+      <a class="a" (click)="logOut()">Logout</a>
+    </div>
+    <div class="register" *ngIf="!token" >
+      <a class="nav-link active" [routerLink]="['/add']">Register</a>
+    </div>
+  </div>
+</nav>
+<!-- Navbar End -->
+<!-- Main content START  -->
+<div class="container mt-3">
+<div class="card">
+  <div class="card-header text-center"><h4>All Contact list</h4></div>
+  <div class="card-body">
+    <table class="table table-striped" id="myTable">
+      <tr class="bg-info text-white">
+          <td> ID</td>
+          <td> Name </td>
+          <td> Phone </td>
+          <td> Email </td>
+          <td> Note </td>
+          <td> Created </td>
+           <td> Action </td>
+      </tr>
+
+      <tr *ngFor="let phone of this.phones">
+          <td>{{phone.id}}</td>
+          <td>{{phone.name}}</td>
+          <td>{{phone.phoneno}}</td>
+          <td>{{phone.email}}</td>
+          <td title="{{phone.note}}">{{phone.note.substring(1,20)}}</td>
+          <td>{{phone.created}}</td>
+          <td>
+          <a href="javascript:void(0);" class="btn btn-success" (click)="view(phone)"><i class="far fa-eye"></i></a>
+          <a style="margin-left: 5px; margin-right: 5px;" href="javascript:void(0);" class="btn btn-info" (click)="edit(phone)"><i class="fas fa-edit"></i></a>
+          <a href="javascript:void(0);" class="btn btn-danger" (click)="delete(phone)"><i class="far fa-trash-alt"></i></a></td>
+      </tr>
+      <tr>
+           <td>&nbsp;</td>
+            <td><a [routerLink]="['/addphone']" class="btn btn-success btn-lg" id="view">Add New</a></td>
+      </tr>
+      </table>
+  </div>
+</div>
+
+</div>
+<!-- Main content END -->
+
+<!-- <div *ngIf="token">
+    <button class="btn btn-warning" (click)="logOut()">Logout</button> |
+
+    <a [routerLink]="['/phone']" class="btn btn-success">Contact Manager</a> |
+
+    <a [routerLink]="['/test']" class="btn btn-success">Test</a> |
+    <a [routerLink]="['/about']" class="btn btn-success">About</a>
+
+</div>
+
+<table class="table table-strip" id="myTable">
+<tr class="bg-dark text-white">
+    <td> ID</td>
+    <td> Name </td>
+    <td> Phone </td>
+    <td> Email </td>
+    <td> note </td>
+    <td> Created </td>
+     <td> Action </td>
+</tr>
+
+<tr *ngFor="let phone of this.phones">
+    <td>{{phone.id}}</td>
+    <td>{{phone.name}}</td>
+    <td>{{phone.phoneno}}</td>
+    <td>{{phone.email}}</td>
+    <td>{{phone.note}}</td>
+    <td>{{phone.created}}</td>
+    <td>
+    <a href="javascript:void(0);" class="btn btn-success" (click)="view(phone)"><i class="far fa-eye"></i></a> /
+    <a href="javascript:void(0);" class="btn btn-success" (click)="edit(phone)"><i class="fas fa-edit"></i></a> /
+    <a href="javascript:void(0);" class="btn btn-danger" (click)="delete(phone)"><i class="far fa-trash-alt"></i></a></td>
+</tr>
+<tr>
+     <td>&nbsp;</td>
+      <td><a [routerLink]="['/addphone']" class="btn btn-success btn-lg" id="view">Add New Phone Info</a></td>
+</tr>
+</table>
+ -->

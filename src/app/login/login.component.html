@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+  <div class="container-fluid">
+    <a class="navbar-brand"[routerLink]="['/']">Contact Managment System</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="token"  class="nav-link active" [routerLink]="['/phone']">Contact List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/test']">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/about']">About Us</a>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="token" class="d-flex left">
+      <a class="a" (click)="logOut()">Logout</a>
+    </div>
+    <div class="register" >
+      <a class="nav-link active" [routerLink]="['/add']">Register</a>
+    </div>
+  </div>
+</nav>
+<!-- Navbar End -->
+<div class="container mt-3">
+  <div class="col-md-6 m-auto">
+  <div class="card">
+    <div class="card-header"><h3> Please Login</h3></div>
+    <div class="card-body">
+
+        <h3 *ngIf='message'>
+         <div class="alert alert-warning">{{message}}</div>
+        </h3>
+         <div *ngIf="invalidLogin" class="error">
+            <div class="text-danger">Invalied user or password. Please try again</div>
+          </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" formControlName="username"
+            id="username"  autocomplete="off">
+            <div class="error"
+             *ngIf="loginForm.controls['username'].hasError('required')
+            && loginForm.controls['username'].touched">Please enter user name</div>
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control"
+             formControlName="password" id="pwd"
+            autocomplete="off">
+            <div class="error"
+             *ngIf="loginForm.controls['password'].hasError('required')
+            && loginForm.controls['password'].touched">Please enter password</div>
+          </div>
+
+          <button class="btn btn-success" [disabled]="loginForm.invalid">Login</button>
+
+        </form>
+
+    </div>
+  </div>
+</div>
+</div>

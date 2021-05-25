@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+  <div class="container-fluid">
+    <a class="navbar-brand"[routerLink]="['/']">Contact Managment System</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="token" id="active" class="nav-link active" [routerLink]="['/phone']">Contact List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/test']">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/about']">About Us</a>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="token" class="d-flex left">
+      <a class="a" (click)="logOut()">Logout</a>
+    </div>
+  </div>
+</nav>
+<!-- Navbar End -->
+<div class="container mt-5">
+  <div class="col-md-6  m-auto mt-5">
+    <div class="card">
+      <div class="card-header">Add New Contact</div>
+      <div class="card-body">
+        <form [formGroup]="addForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="username">Name Name:</label>
+            <input type="text" formControlName="username" placeholder="Name" name="username" class="form-control"
+              id="username">
+          </div>
+
+          <div class="form-group">
+            <label for="phoneno">Phone Number:</label>
+            <input type="text" formControlName="phoneno" placeholder="phoneno" name="phoneno" class="form-control"
+              id="phoneno">
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" formControlName="email" placeholder="email" name="email" class="form-control"
+              id="email">
+          </div>
+          <div class="form-group">
+            <label for="note">Note:</label>
+            <textarea name="note" formControlName="note" class="form-control" id="note"  rows="4"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="photo">Photo:</label>
+            <input type="file" formControlName="photo" name="photo" id="photo" class="form-control-file">
+          </div>
+
+          <button class="btn btn-info">Add Contact</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

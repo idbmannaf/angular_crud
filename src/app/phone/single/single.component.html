@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+  <div class="container-fluid">
+    <a class="navbar-brand"[routerLink]="['/']">Contact Managment System</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="token" id="active" class="nav-link active" [routerLink]="['/phone']">Contact List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/test']">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/about']">About Us</a>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="token" class="d-flex left">
+      <a class="a" (click)="logOut()">Logout</a>
+    </div>
+  </div>
+</nav>
+<!-- Navbar End -->
+<div class="container mt-3">
+  <div class="col-md-10 m-auto">
+    <div class="card">
+      <div class="card-header">Contact Details</div>
+      <div class="card-body">
+        <table class="table table-striped">
+          <tr>
+            <td colspan="50" class="text-center">
+              <img class="img shadow" src="../../../assets/img/d.png" alt="" srcset="">
+            </td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td>{{phone.name}} </td>
+          </tr>
+          <tr>
+            <th>Phone No</th>
+            <td>{{phone.phoneno}} </td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>{{phone.email}} </td>
+          </tr>
+          <tr>
+            <th>Note</th>
+            <td>{{phone.note}} </td>
+          </tr>
+          <tr>
+            <th>Created</th>
+            <td>{{phone.created}} </td>
+          </tr>
+          <tr>
+            <td colspan="50">  <button class="btn btn-info" (click)='back()'>Back</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

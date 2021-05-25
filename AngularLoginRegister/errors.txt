@@ -1,0 +1,2 @@
+[20-Jan-2020 10:15:00 Asia/Dhaka] PHP Warning:  mysqli_connect(): (HY000/1049): Unknown database 'angularloginregister' in D:\xampp728\htdocs\r42M\ng\projects\Angular-Login-Regsiter-master\AngularLoginRegister\connect.php on line 12
+[04-Feb-2020 10:22:05 Asia/Dhaka] PHP Notice:  Undefined index: id in D:\xampp728\htdocs\r42M\ng\phonenumbermanager\AngularLoginRegister\getById.php on line 5

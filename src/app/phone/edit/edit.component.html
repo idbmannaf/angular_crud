@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/']">Contact Managment System</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="token" id="active" class="nav-link active" [routerLink]="['/phone']">Contact List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/test']">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/about']">About Us</a>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="token" class="d-flex left">
+      <a class="a" (click)="logOut()">Logout</a>
+    </div>
+  </div>
+</nav>
+<!-- Navbar End -->
+
+
+<div class="container mt-3">
+  <div class="col-md-6 m-auto">
+    <div class="card">
+      <div class="card-header">Update Contact</div>
+      <div class="card-body">
+        <form [formGroup]="addForm" (ngSubmit)="onUpdate()">
+          <div class="form-group">
+            <label for="name">User Name:</label>
+            <input type="text" formControlName="name" placeholder="name" name="name" class="form-control" id="name">
+          </div>
+
+          <div class="form-group">
+            <label for="phoneno">Phone no:</label>
+            <input type="text" formControlName="phoneno" placeholder="password" name="phoneno" class="form-control"
+              id="phoneno">
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" formControlName="email" placeholder="example@web.com" name="email" class="form-control"
+              id="email">
+          </div>
+          <div class="form-group">
+            <label for="phoneno">Note:</label>
+            <textarea name="note" formControlName="note" id="note" rows="4" class="form-control"></textarea>
+            <!-- <input type="text" formControlName="note"
+            placeholder="text" name="note" class="form-control" id="note"> -->
+          </div>
+          <button class="btn btn-success">Update Phone</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

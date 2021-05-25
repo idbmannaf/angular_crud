@@ -1,0 +1,23 @@
+.a{
+  cursor: pointer;
+  transition: .4s;
+}
+ul li a{
+  border-bottom: 3px solid transparent;
+  transition: .4s;
+}
+#active{
+  border-bottom: 3px solid black;
+  color: white;
+}
+ul li a:hover, .a:hover{
+  /* background-color: #06d9fa; */
+  border-bottom: 3px solid black;
+  color: white;
+}
+ul li{
+  margin-left: 10px;
+}
+.register a{
+  color: black;
+}

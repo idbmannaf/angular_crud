@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+  <div class="container-fluid">
+    <a class="navbar-brand"[routerLink]="['/']">Contact Managment System</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
+        </li>
+        <li class="nav-item" *ngIf="token">
+          <a class="nav-link active" [routerLink]="['/phone']">Contact List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/test']">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" id="active" [routerLink]="['/about']">About Us</a>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="token" class="d-flex left">
+      <a class="a" (click)="logOut()">Logout</a>
+    </div>
+  </div>
+</nav>
+<!-- Navbar End -->
+<div class="container mt-3">
+  <div class="card">
+    <div class="card-header"><h3>About Us</h3></div>
+    <div class="card-body">
+     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat aliquam ullam consequatur vitae consectetur et nam cupiditate fugiat? Officia labore praesentium nisi autem dicta expedita tempore est, modi itaque laboriosam, vero eligendi veniam beatae, dignissimos id nam corrupti enim voluptate aperiam cum hic vitae necessitatibus. Vitae assumenda necessitatibus deserunt illo, qui provident obcaecati ad! Totam atque ad quisquam natus ullam aliquam, reprehenderit velit veniam non maiores. Iste nihil eius eaque! Dolorem magnam atque porro deserunt cum eum, id aut qui mollitia deleniti! A ipsum quasi quae eum id quod ipsa, fugit voluptas cum dolores voluptate nam? Minus ipsam explicabo at fugiat deleniti illum accusamus architecto. Temporibus dolore explicabo mollitia incidunt architecto. Omnis voluptatem neque consequatur commodi expedita tenetur maiores. Non molestias laudantium cum accusamus exercitationem, inventore totam, consequatur fuga veniam minus similique corporis nemo optio labore quaerat, suscipit distinctio voluptatem sint maxime odit impedit omnis! Molestiae fugit reiciendis numquam, officia nisi ea similique necessitatibus neque dolores magnam dicta facere quos eos reprehenderit ab vel obcaecati ad asperiores, nemo amet quis officiis impedit exercitationem. Quos molestiae eaque fuga magni molestias eveniet magnam laudantium libero enim quasi vitae at, sunt dolores. Aliquam, excepturi inventore. Tempore qui molestias eaque cumque sint corporis excepturi.</p>
+     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat aliquam ullam consequatur vitae consectetur et nam cupiditate fugiat? Officia labore praesentium nisi autem dicta expedita tempore est, modi itaque laboriosam, vero eligendi veniam beatae, dignissimos id nam corrupti enim voluptate aperiam cum hic vitae necessitatibus. Vitae assumenda necessitatibus deserunt illo, qui provident obcaecati ad! Totam atque ad quisquam natus ullam aliquam, reprehenderit velit veniam non maiores. Iste nihil eius eaque! Dolorem magnam atque porro deserunt cum eum, id aut qui mollitia deleniti! A ipsum quasi quae eum id quod ipsa, fugit voluptas cum dolores voluptate nam? Minus ipsam explicabo at fugiat deleniti illum accusamus architecto. Temporibus dolore explicabo mollitia incidunt architecto. Omnis voluptatem neque consequatur commodi expedita tenetur maiores. Non molestias laudantium cum accusamus exercitationem, inventore totam, consequatur fuga veniam minus similique corporis nemo optio labore quaerat, suscipit distinctio voluptatem sint maxime odit impedit omnis! Molestiae fugit reiciendis numquam, officia nisi ea similique necessitatibus neque dolores magnam dicta facere quos eos reprehenderit ab vel obcaecati ad asperiores, nemo amet quis officiis impedit exercitationem. Quos molestiae eaque fuga magni molestias eveniet magnam laudantium libero enim quasi vitae at, sunt dolores. Aliquam, excepturi inventore. Tempore qui molestias eaque cumque sint corporis excepturi.</p>
+    </div>
+  </div>
+</div>
